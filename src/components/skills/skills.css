@@ -18,13 +18,14 @@
     background: linear-gradient(135deg, #3b82f6, #9333ea);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* ===== CONTAINER ===== */
 .skills-container {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 40px;
     flex-wrap: wrap;
     max-width: 1400px;
     margin: 0 auto;
@@ -33,6 +34,7 @@
 /* ===== TILT WRAPPER & CARD ===== */
 .skill-wrapper {
     perspective: 1500px;
+    cursor: pointer;
 }
 
 .skill-card {
@@ -40,7 +42,6 @@
     height: 380px;
     position: relative;
     background: transparent;
-    cursor: pointer;
 }
 
 /* ===== INNER 3D ===== */
@@ -54,8 +55,14 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 40px rgba(59, 130, 246, 0.1);
 }
 
-/* Flip on hover (desktop) */
+/* ===== DESKTOP: CSS hover flips the card ===== */
 .skill-wrapper:hover .card-inner {
+    transform: rotateY(180deg);
+    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25);
+}
+
+/* ===== MOBILE: JS state flips the card ===== */
+.skill-card.flipped .card-inner {
     transform: rotateY(180deg);
 }
 
@@ -70,21 +77,31 @@
     border-radius: 24px;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    background: rgba(12, 18, 38, 0.92); /* Solid — no backdrop-filter needed */
+    background: rgba(12, 18, 38, 0.92);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ===== FRONT ===== */
+/* Front clips the ambient glow blob */
 .card-front {
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     position: relative;
 }
 
-/* Stunning glowing backgrounds for categories */
+/* Back must be visible so React icon hover effects render outside card bounds */
+.card-back {
+    overflow: visible;
+    transform: rotateY(180deg);
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 20px;
+    background: rgba(10, 15, 30, 0.92);
+}
+
+/* ===== GLOW BLOBS (FRONT) ===== */
 .card-front::before {
     content: "";
     position: absolute;
@@ -96,30 +113,12 @@
     opacity: 0.6;
 }
 
-.category-frontend::before {
-    background: rgba(59, 130, 246, 0.8);
-    top: -20px;
-    left: -20px;
-}
+.category-frontend::before { background: rgba(59, 130, 246, 0.8); top: -20px; left: -20px; }
+.category-backend::before  { background: rgba(16, 185, 129, 0.8); bottom: -20px; right: -20px; }
+.category-database::before { background: rgba(236, 72, 153, 0.8); bottom: 0; left: -20px; }
+.category-devops::before   { background: rgba(245, 158, 11, 0.8); top: -20px; right: -20px; }
 
-.category-backend::before {
-    background: rgba(16, 185, 129, 0.8);
-    bottom: -20px;
-    right: -20px;
-}
-
-.category-database::before {
-    background: rgba(236, 72, 153, 0.8);
-    bottom: 0px;
-    left: -20px;
-}
-
-.category-devops::before {
-    background: rgba(245, 158, 11, 0.8);
-    top: -20px;
-    right: -20px;
-}
-
+/* ===== FRONT CONTENT ===== */
 .front-content {
     position: relative;
     z-index: 2;
@@ -133,12 +132,10 @@
     font-size: 65px;
     color: white;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.4));
-    transition: transform 0.5s ease;
-}
-
-.skill-wrapper:hover .front-icon {
-    transform: scale(1.15) translateY(-10px);
 }
 
 .card-front h3 {
@@ -157,20 +154,11 @@
     text-align: center;
 }
 
-/* ===== BACK ===== */
-.card-back {
-    transform: rotateY(180deg);
-    justify-content: flex-start;
-    align-items: center;
-    padding: 40px 20px;
-    background: rgba(10, 15, 30, 0.85);
-    /* Slightly Darker back */
-}
-
+/* ===== BACK TITLE ===== */
 .back-title {
     color: #fff;
     font-size: 18px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -183,59 +171,28 @@
 .icons-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
     width: 100%;
     padding: 0 10px;
 }
 
+/* Base icon cell — hover state handled via React inline styles */
 .icon-item {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     aspect-ratio: 1;
-    background: rgba(255, 255, 255, 0.05);
     border-radius: 14px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.icon-item svg {
-    font-size: 32px;
-    filter: grayscale(0.5);
-    /* Desaturated default */
-    opacity: 0.8;
-    transition: all 0.3s ease;
-}
-
-.icon-item:hover {
-    transform: scale(1.2) translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.icon-item:hover svg {
-    filter: grayscale(0);
-    /* Fully Saturated on hover */
-    opacity: 1;
-}
-
-/* ===== HOVER EFFECT ON ENTIRE CARD (shadow only) ===== */
-.skill-card:hover .card-inner {
-    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.25);
-}
-
-/* State-driven flip (for mobile toggle click) */
-.skill-card.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-/* ===== MOBILE ===== */
+/* ===== MOBILE (tablet and below) ===== */
 @media (max-width: 768px) {
-    /* Disable CSS hover flip on touch screens — JS state handles it */
-    .skill-card:hover .card-inner {
+    /* Disable CSS hover flip — click (JS state) handles it */
+    .skill-wrapper:hover .card-inner {
         transform: none;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 40px rgba(59, 130, 246, 0.1);
     }
 
     .skill-card.flipped .card-inner {

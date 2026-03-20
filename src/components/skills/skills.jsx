@@ -19,12 +19,12 @@ const cards = [
     title: "Frontend",
     preview: "React.js, Angular, HTML, CSS, JS/TS",
     icons: [
-      { icon: <FaReact style={{ color: "#61DAFB" }} />, label: "React.js" },
-      { icon: <SiAngular style={{ color: "#DD0031" }} />, label: "Angular" },
-      { icon: <FaHtml5 style={{ color: "#E34F26" }} />, label: "HTML5" },
-      { icon: <FaCss3Alt style={{ color: "#1572B6" }} />, label: "CSS3" },
-      { icon: <SiJavascript style={{ color: "#F7DF1E" }} />, label: "JavaScript" },
-      { icon: <SiTypescript style={{ color: "#3178C6" }} />, label: "TypeScript" },
+      { icon: <FaReact />, color: "#61DAFB", label: "React.js" },
+      { icon: <SiAngular />, color: "#DD0031", label: "Angular" },
+      { icon: <FaHtml5 />, color: "#E34F26", label: "HTML5" },
+      { icon: <FaCss3Alt />, color: "#1572B6", label: "CSS3" },
+      { icon: <SiJavascript />, color: "#F7DF1E", label: "JavaScript" },
+      { icon: <SiTypescript />, color: "#3178C6", label: "TypeScript" },
     ]
   },
   {
@@ -34,12 +34,12 @@ const cards = [
     title: "Backend",
     preview: "Node.js, NestJS, Spring Boot, .NET, PHP",
     icons: [
-      { icon: <FaNodeJs style={{ color: "#339933" }} />, label: "Node.js" },
-      { icon: <SiExpress style={{ color: "#FFFFFF" }} />, label: "Express.js" },
-      { icon: <SiNestjs style={{ color: "#E0234E" }} />, label: "NestJS" },
-      { icon: <SiSpringboot style={{ color: "#6DB33F" }} />, label: "Spring Boot" },
-      { icon: <SiDotnet style={{ color: "#512BD4" }} />, label: ".NET" },
-      { icon: <FaPhp style={{ color: "#777BB4" }} />, label: "PHP" },
+      { icon: <FaNodeJs />, color: "#339933", label: "Node.js" },
+      { icon: <SiExpress />, color: "#FFFFFF", label: "Express.js" },
+      { icon: <SiNestjs />, color: "#E0234E", label: "NestJS" },
+      { icon: <SiSpringboot />, color: "#6DB33F", label: "Spring Boot" },
+      { icon: <SiDotnet />, color: "#512BD4", label: ".NET" },
+      { icon: <FaPhp />, color: "#777BB4", label: "PHP" },
     ]
   },
   {
@@ -49,8 +49,8 @@ const cards = [
     title: "Base de Données",
     preview: "MySQL, MongoDB",
     icons: [
-      { icon: <SiMysql style={{ color: "#4479A1" }} />, label: "MySQL" },
-      { icon: <SiMongodb style={{ color: "#47A248" }} />, label: "MongoDB" },
+      { icon: <SiMysql />, color: "#4479A1", label: "MySQL" },
+      { icon: <SiMongodb />, color: "#47A248", label: "MongoDB" },
     ]
   },
   {
@@ -60,13 +60,43 @@ const cards = [
     title: "DevOps",
     preview: "Docker, CI/CD, Git, GitHub",
     icons: [
-      { icon: <FaDocker style={{ color: "#2496ED" }} />, label: "Docker" },
-      { icon: <SiGithubactions style={{ color: "#2088FF" }} />, label: "CI/CD" },
-      { icon: <FaGitAlt style={{ color: "#F05032" }} />, label: "Git" },
-      { icon: <FaGithub style={{ color: "#ffffff" }} />, label: "GitHub" },
+      { icon: <FaDocker />, color: "#2496ED", label: "Docker" },
+      { icon: <SiGithubactions />, color: "#2088FF", label: "CICD" },
+      { icon: <FaGitAlt />, color: "#F05032", label: "Git" },
+      { icon: <FaGithub />, color: "#ffffff", label: "GitHub" },
     ]
   },
 ];
+
+// Dedicated component so React hover state works independently of the Tilt library
+function IconItem({ icon, color, label }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      className="icon-item"
+      title={label}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: hovered ? `${color}22` : "rgba(255,255,255,0.05)",
+        borderColor: hovered ? `${color}66` : "rgba(255,255,255,0.05)",
+        boxShadow: hovered ? `0 0 18px ${color}55` : "none",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <span style={{
+        fontSize: "30px",
+        color: hovered ? color : "#64748b",
+        transition: "color 0.3s ease",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}>
+        {icon}
+      </span>
+    </div>
+  );
+}
 
 function Skills() {
   const [flipped, setFlipped] = useState({});
@@ -77,7 +107,7 @@ function Skills() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 50 },
+    hidden: { opacity: 0, scale: 0.9, y: 50 },
     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, type: "spring", bounce: 0.4 } }
   };
 
@@ -129,18 +159,19 @@ function Skills() {
                     <div className="front-content">
                       <span className="front-icon">{card.icon}</span>
                       <h3>{card.title}</h3>
-                      <p>{card.preview}</p>
                     </div>
                   </div>
-
                   {/* BACK */}
                   <div className="card-back">
                     <h4 className="back-title">{card.title}</h4>
                     <div className="icons-grid">
                       {card.icons.map((item) => (
-                        <div className="icon-item" key={item.label} title={item.label}>
-                          {item.icon}
-                        </div>
+                        <IconItem
+                          key={item.label}
+                          icon={item.icon}
+                          color={item.color}
+                          label={item.label}
+                        />
                       ))}
                     </div>
                   </div>
