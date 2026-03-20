@@ -1,0 +1,63 @@
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at 30% 20%, #000000, #02030b);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ===== LIQUID BLOB (REUSABLE 🔥) ===== */
+.liquid {
+  position: absolute;
+
+  width: var(--size);
+  height: var(--size);
+
+  top: var(--top);
+  left: var(--left);
+
+  background: var(--gradient);
+
+  filter: blur(5px); 
+  opacity: 0.85;
+
+  animation:
+    morph var(--morph-duration) ease-in-out infinite,
+    float var(--float-duration) ease-in-out infinite;
+
+  will-change: transform, border-radius;
+}
+
+/* ===== MORPHING ===== */
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 70% 60% 40% / 50% 60% 40% 50%;
+  }
+}
+
+/* ===== FLOAT (DYNAMIC FEEL) ===== */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(var(--x), var(--y));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

@@ -1,0 +1,311 @@
+/* ===== SECTION ===== */
+.about {
+  padding: 120px 20px;
+  position: relative;
+  overflow: hidden; /* Contains floating glow */
+  z-index: 1;
+}
+
+/* ===== ENHANCED BACKGROUND DECOR ===== */
+.about-bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.shape-purple {
+  width: 450px;
+  height: 450px;
+  top: -10%;
+  left: -15%;
+  animation: floatBg 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shape-blue {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.45), transparent 70%);
+  bottom: -10%;
+  right: -10%;
+  animation: floatBg 12s infinite alternate-reverse cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== CONTAINER ===== */
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== LEFT ===== */
+.about-left {
+  flex: 1.1;
+  color: white;
+}
+
+.about-left h2 {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -1.5px;
+}
+
+.about-left h2 span {
+  background: linear-gradient(135deg, #3b82f6 0%, #9333ea 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.highlight {
+  font-size: 20px;
+  color: #60a5fa;
+  font-weight: 600;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.about-details p {
+  color: #cbd5e1;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* ===== GOAL HIGHLIGHT ===== */
+.goal-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 36px;
+  padding: 24px;
+  background: rgba(147, 51, 234, 0.06);
+  border-left: 4px solid #a855f7;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.goal-container:hover {
+  transform: translateY(-4px);
+  background: rgba(147, 51, 234, 0.1);
+}
+
+.goal-icon-wrapper {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(168, 85, 247, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+}
+
+.goal-icon {
+  font-size: 22px;
+  color: #d8b4fe;
+}
+
+.goal {
+  color: #f3e8ff;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.goal strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== RIGHT ===== */
+.about-right {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== PREMIUM BOX ===== */
+.about-box {
+  position: relative;
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  cursor: default;
+}
+
+/* Soft Edge Lighting */
+.about-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Internal Glow Follow Hover Simulation */
+.about-box .glow {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+  top: -125px;
+  left: -125px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* Hover State */
+.about-box:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(59, 130, 246, 0.15) inset;
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+.about-box:hover .glow {
+  opacity: 1;
+  transform: translate(250px, 150px);
+}
+
+/* Icon Container */
+.box-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: rgba(59, 130, 246, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.box-icon {
+  font-size: 28px;
+  color: #60a5fa;
+  transition: all 0.4s ease;
+}
+
+/* Icon Animation on Hover */
+.about-box:hover .box-icon-wrapper {
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  border-color: transparent;
+  transform: rotate(8deg);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+}
+
+.about-box:hover .box-icon {
+  color: #ffffff;
+  transform: scale(1.15);
+}
+
+/* Text */
+.box-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.about-box h3 {
+  color: #f8fafc;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.about-box p {
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes floatBg {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-40px) scale(1.1); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .about-container {
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  .about-left {
+    text-align: center;
+  }
+  
+  .goal-container {
+    text-align: left;
+    margin-inline: auto;
+    max-width: 600px;
+  }
+  
+  .about-left h2 {
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 80px 15px;
+  }
+  
+  .about-left h2 {
+    font-size: 38px;
+  }
+  
+  .about-box {
+    padding: 24px;
+    gap: 16px;
+  }
+  
+  .box-icon-wrapper {
+    width: 54px;
+    height: 54px;
+  }
+  
+  .box-icon {
+    font-size: 24px;
+  }
+  
+  .about-box h3 {
+    font-size: 20px;
+  }
+}

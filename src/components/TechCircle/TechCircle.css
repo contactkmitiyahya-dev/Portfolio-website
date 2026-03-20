@@ -1,0 +1,150 @@
+/* ===== CONTAINER ===== */
+.tech-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  height: 250px;
+  perspective: 1200px;
+  --orbit-radius: 380px;
+}
+
+@media (max-width: 768px) {
+  .tech-circle {
+    --orbit-radius: 130px;
+    height: 180px;
+  }
+}
+
+/* ===== ELLIPSE WRAPPER ===== */
+.circle {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(75deg);
+}
+
+/* ===== ICON ===== */
+.icon {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  color: #e2e8f0;
+
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+
+  /* The animation both moves the icon in an orbit and counters the tilt */
+  animation: orbit 14s linear infinite;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.icon svg {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* ===== ROTATION ===== */
+@keyframes orbit {
+  0% {
+    /* Right */
+    transform: rotateZ(0deg) translateX(var(--orbit-radius)) rotateZ(0deg) rotateX(-90deg) scale(1);
+    opacity: 0.6;
+  }
+
+  25% {
+    /* Front */
+    transform: rotateZ(90deg) translateX(var(--orbit-radius)) rotateZ(-90deg) rotateX(-90deg) scale(1.3);
+    opacity: 1;
+  }
+
+  50% {
+    /* Left */
+    transform: rotateZ(180deg) translateX(var(--orbit-radius)) rotateZ(-180deg) rotateX(-90deg) scale(1);
+    opacity: 0.6;
+  }
+
+  75% {
+    /* Back - Disappears */
+    transform: rotateZ(270deg) translateX(var(--orbit-radius)) rotateZ(-270deg) rotateX(-90deg) scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    /* Right */
+    transform: rotateZ(360deg) translateX(var(--orbit-radius)) rotateZ(-360deg) rotateX(-90deg) scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* ===== OFFSET EACH ICON ===== */
+/* With 11 icons, we space them evenly (1/11th of the duration) */
+.i1 {
+  animation-delay: calc(14s * -0 / 11);
+}
+
+.i2 {
+  animation-delay: calc(14s * -1 / 11);
+}
+
+.i3 {
+  animation-delay: calc(14s * -2 / 11);
+}
+
+.i4 {
+  animation-delay: calc(14s * -3 / 11);
+}
+
+.i5 {
+  animation-delay: calc(14s * -4 / 11);
+}
+
+.i6 {
+  animation-delay: calc(14s * -5 / 11);
+}
+
+.i7 {
+  animation-delay: calc(14s * -6 / 11);
+}
+
+.i8 {
+  animation-delay: calc(14s * -7 / 11);
+}
+
+.i9 {
+  animation-delay: calc(14s * -8 / 11);
+}
+
+.i10 {
+  animation-delay: calc(14s * -9 / 11);
+}
+
+.i11 {
+  animation-delay: calc(14s * -10 / 11);
+}
+
+/* ===== HOVER ===== */
+.icon:hover {
+  background: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+  border-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  z-index: 10;
+  /* Bring hovered to front if possible */
+}
+
+.icon:hover svg {
+  transform: scale(1.3);
+  color: #ffffff;
+}

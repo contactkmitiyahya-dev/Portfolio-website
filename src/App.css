@@ -1,0 +1,39 @@
+/* ===== GLASS APP ===== */
+.glass-app {
+  position: relative;
+  z-index: 2;
+  padding: 100px 30px 30px 30px; /* Offset for fixed header */
+  background: rgba(12, 15, 56, 0.95);
+  /* Removed backdrop-filter onto scrolling container for massive performance fix */
+  min-height: 100vh;
+}
+html,body {
+  scroll-behavior: smooth;
+}
+
+/* Beautiful custom global scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #02030b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 51, 234, 0.8);
+}
+
+/* Custom progress bar from Framer Motion */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #9333ea, #ec4899);
+  transform-origin: 0%;
+  z-index: 10000;
+}
