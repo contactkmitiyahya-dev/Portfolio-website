@@ -15,9 +15,11 @@ body {
   height: 100%;
   z-index: 0;
   overflow: hidden;
+  /* Single blur pass on the CONTAINER instead of per-element — massive perf win */
+  filter: blur(70px);
 }
 
-/* ===== LIQUID BLOB (REUSABLE 🔥) ===== */
+/* ===== LIQUID BLOB ===== */
 .liquid {
   position: absolute;
 
@@ -28,10 +30,9 @@ body {
   left: var(--left);
 
   background: var(--gradient);
+  opacity: 0.5;
 
-  filter: blur(5px); 
-  opacity: 0.85;
-
+  /* Only animate transform and border-radius — GPU composited, zero layout thrashing */
   animation:
     morph var(--morph-duration) ease-in-out infinite,
     float var(--float-duration) ease-in-out infinite;
@@ -49,15 +50,9 @@ body {
   }
 }
 
-/* ===== FLOAT (DYNAMIC FEEL) ===== */
+/* ===== FLOAT ===== */
 @keyframes float {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(var(--x), var(--y));
-  }
-  100% {
-    transform: translate(0, 0);
-  }
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(var(--x), var(--y)); }
+  100% { transform: translate(0, 0); }
 }

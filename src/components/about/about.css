@@ -1,6 +1,6 @@
 /* ===== SECTION ===== */
 .about {
-  padding: 120px 20px;
+  padding: 120px 20px 10px;
   position: relative;
   overflow: hidden; /* Contains floating glow */
   z-index: 1;
@@ -12,8 +12,9 @@
   border-radius: 50%;
   filter: blur(100px);
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0; /* Hidden permanently — background blobs already handle ambient light */
   pointer-events: none;
+  /* animation removed to avoid extra compositing layer */
 }
 
 .shape-purple {
@@ -143,17 +144,16 @@
   position: relative;
   padding: 28px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.6); /* Solid tint — no backdrop-filter needed */
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background 0.4s ease;
   display: flex;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   cursor: default;
+  will-change: transform;
 }
 
 /* Soft Edge Lighting */
