@@ -1,6 +1,11 @@
 import "./hero.css";
 import profile from "../../assets/profile.jpg";
+import cvFile from "../../assets/kmiti_yahya_cv.pdf";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FiDownload } from "react-icons/fi";
+
+const MotionLink = motion(Link);
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -17,7 +22,6 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-container">
 
-        {/* LEFT */}
         <motion.div
           className="hero-left"
           initial="hidden"
@@ -31,7 +35,7 @@ function Hero() {
 
           <motion.h1 className="hero-title" variants={itemVariants}>
             Hello, I'm <span className="name-highlight">Yahya</span>{" "}
-            <span className="emoji">👋</span>
+            <span className="emoji" aria-hidden="true">👋</span>
           </motion.h1>
 
           <motion.h2 className="hero-subtitle" variants={itemVariants}>
@@ -44,26 +48,36 @@ function Hero() {
           </motion.p>
 
           <motion.div className="hero-buttons" variants={itemVariants}>
-            <motion.a
-              href="#projects"
+            <MotionLink
+              to="/projects"
               className="btn-primary"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
             >
               View Projects
-            </motion.a>
+            </MotionLink>
             <motion.a
-              href="#contact"
+              href={cvFile}
+              download="Kmiti_Yahya_CV.pdf"
+              className="btn-secondary"
+              aria-label="Download my CV as a PDF file"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              style={{ display: "flex", alignItems: "center", gap: "8px" }}
+            >
+              <FiDownload aria-hidden="true" /> Download CV
+            </motion.a>
+            <MotionLink
+              to="/contact"
               className="btn-secondary"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
             >
               Contact Me
-            </motion.a>
+            </MotionLink>
           </motion.div>
         </motion.div>
 
-        {/* RIGHT */}
         <motion.div
           className="hero-right"
           initial={{ opacity: 0, scale: 0.85, y: 20 }}
@@ -72,7 +86,7 @@ function Hero() {
           transition={{ duration: 1.1, type: "spring", bounce: 0.3, delay: 0.2 }}
         >
           <div className="image-wrapper">
-            <img src={profile} alt="Yahya" />
+            <img src={profile} alt="Yahya Kmiti - Full-Stack Developer and Engineering Student" />
           </div>
         </motion.div>
 

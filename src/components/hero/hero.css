@@ -1,10 +1,5 @@
-/* ========================================
-   HERO — Premium Redesign
-   ======================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ===== SECTION ===== */
 .hero {
   display: flex;
   align-items: center;
@@ -15,7 +10,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* ===== CONTAINER ===== */
 .hero-container {
   width: 100%;
   max-width: 1200px;
@@ -25,7 +19,6 @@
   gap: 60px;
 }
 
-/* ===== LEFT ===== */
 .hero-left {
   flex: 1;
   display: flex;
@@ -33,7 +26,6 @@
   gap: 0;
 }
 
-/* Pre-title label */
 .hero-label {
   display: inline-flex;
   align-items: center;
@@ -55,7 +47,6 @@
   border-radius: 2px;
 }
 
-/* Main Title */
 .hero-title {
   font-size: clamp(42px, 6vw, 76px);
   font-weight: 900;
@@ -73,7 +64,6 @@
   display: inline-block;
 }
 
-/* Animated typing cursor */
 .hero-title .emoji {
   -webkit-text-fill-color: initial;
   display: inline-block;
@@ -88,31 +78,28 @@
   75% { transform: rotate(15deg); }
 }
 
-/* Subtitle */
 .hero-subtitle {
   font-size: clamp(16px, 2.5vw, 22px);
   font-weight: 400;
-  color: #64748b;
+  color: #f6f6f6;
   margin: 0 0 24px;
   letter-spacing: -0.3px;
   line-height: 1.5;
 }
 
 .hero-subtitle strong {
-  color: #94a3b8;
+  color: #ffffff;
   font-weight: 500;
 }
 
-/* Body text */
 .hero-text {
-  color: #475569;
+  color: #acc4e7;
   line-height: 1.8;
   font-size: 16px;
   max-width: 520px;
   margin: 0 0 36px;
 }
 
-/* ===== BUTTONS ===== */
 .hero-buttons {
   display: flex;
   gap: 14px;
@@ -171,7 +158,6 @@
   color: white;
 }
 
-/* ===== RIGHT — IMAGE ===== */
 .hero-right {
   flex: 0 0 auto;
   display: flex;
@@ -180,7 +166,6 @@
   position: relative;
 }
 
-/* Glowing ring behind image */
 .hero-right::before {
   content: "";
   position: absolute;
@@ -222,7 +207,6 @@
   object-position: center top;
 }
 
-/* ===== ANIMATIONS ===== */
 @keyframes morph {
   0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
   50% { border-radius: 60% 40% 30% 70% / 60% 70% 30% 40%; }
@@ -233,7 +217,6 @@
   50% { transform: translateY(-18px); }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .hero-container {
     flex-direction: column-reverse;

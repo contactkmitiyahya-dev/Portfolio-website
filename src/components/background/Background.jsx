@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/purity */
 import "./background.css";
 
 function random(min, max) {
@@ -16,7 +15,6 @@ const gradients = [
   "radial-gradient(circle at 20% 20%, #0e7490, #3b82f6)",
 ];
 
-// Defined ONCE at module level so they don't re-randomize on every render
 const blobsData = Array.from({ length: 8 }).map((_, i) => ({
   id: i,
   size: `${random(200, 500)}px`,

@@ -1,4 +1,3 @@
-/* ===== HEADER ===== */
 .header {
   position: fixed;
   top: 0;
@@ -10,14 +9,12 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Scrolled state — shrinks and picks up background */
 .header.scrolled {
   padding: 8px 24px;
   background: rgba(6, 8, 28, 0.82);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* ===== CONTAINER ===== */
 .header-container {
   max-width: 1250px;
   margin: 0 auto;
@@ -37,14 +34,12 @@
   border-color: rgba(255, 255, 255, 0.04);
 }
 
-/* ===== LEFT ===== */
 .left {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* ===== LOGO ===== */
 .logo {
   font-weight: 800;
   font-size: 20px;
@@ -61,7 +56,6 @@
   opacity: 0.8;
 }
 
-/* ===== DESKTOP NAV ===== */
 .nav-desktop {
   display: flex;
   gap: 6px;
@@ -84,7 +78,6 @@
   background: rgba(255, 255, 255, 0.07);
 }
 
-/* Active indicator (always will use the animated underline) */
 .nav-desktop a::after {
   content: "";
   position: absolute;
@@ -102,7 +95,6 @@
   width: 50%;
 }
 
-/* ===== CTA BUTTON ===== */
 .cta button {
   padding: 9px 20px;
   border: none;
@@ -127,7 +119,6 @@
   transform: translateY(0);
 }
 
-/* ===== HAMBURGER ===== */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -167,7 +158,6 @@
 .hamburger.open .burger::before { transform: rotate(45deg); }
 .hamburger.open .burger::after { transform: rotate(-45deg); }
 
-/* ===== MOBILE MENU ===== */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -227,7 +217,6 @@
   font-size: 18px;
 }
 
-/* ===== CLOSE BUTTON ===== */
 .close-btn {
   position: absolute;
   top: 20px;
@@ -244,7 +233,6 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ===== OVERLAY ===== */
 .overlay {
   position: fixed;
   inset: 0;
@@ -252,7 +240,6 @@
   z-index: 150;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .nav-desktop { display: none; }
   .cta { display: none; }
@@ -260,7 +247,6 @@
   .logo { display: none; }
 }
 
-/* ===== MOBILE HEADER (LOGO + CLOSE) ===== */
 .mobile-header {
   position: absolute;
   top: 0;

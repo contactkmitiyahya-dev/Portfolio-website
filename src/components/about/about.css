@@ -1,20 +1,17 @@
-/* ===== SECTION ===== */
 .about {
   padding: 120px 20px 10px;
   position: relative;
-  overflow: hidden; /* Contains floating glow */
+  overflow: hidden;
   z-index: 1;
 }
 
-/* ===== ENHANCED BACKGROUND DECOR ===== */
 .about-bg-shape {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
   z-index: -1;
-  opacity: 0; /* Hidden permanently — background blobs already handle ambient light */
+  opacity: 0;
   pointer-events: none;
-  /* animation removed to avoid extra compositing layer */
 }
 
 .shape-purple {
@@ -34,7 +31,6 @@
   animation: floatBg 12s infinite alternate-reverse cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== CONTAINER ===== */
 .about-container {
   max-width: 1200px;
   margin: auto;
@@ -45,7 +41,6 @@
   z-index: 2;
 }
 
-/* ===== LEFT ===== */
 .about-left {
   flex: 1.1;
   color: white;
@@ -82,7 +77,6 @@
   font-weight: 400;
 }
 
-/* ===== GOAL HIGHLIGHT ===== */
 .goal-container {
   display: flex;
   align-items: flex-start;
@@ -131,7 +125,6 @@
   font-weight: 600;
 }
 
-/* ===== RIGHT ===== */
 .about-right {
   flex: 0.9;
   display: flex;
@@ -139,12 +132,11 @@
   gap: 24px;
 }
 
-/* ===== PREMIUM BOX ===== */
 .about-box {
   position: relative;
   padding: 28px;
   border-radius: 20px;
-  background: rgba(15, 23, 42, 0.6); /* Solid tint — no backdrop-filter needed */
+  background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background 0.4s ease;
@@ -156,7 +148,6 @@
   will-change: transform;
 }
 
-/* Soft Edge Lighting */
 .about-box::after {
   content: "";
   position: absolute;
@@ -165,12 +156,12 @@
   padding: 1px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
-/* Internal Glow Follow Hover Simulation */
 .about-box .glow {
   position: absolute;
   width: 250px;
@@ -184,7 +175,6 @@
   border-radius: 50%;
 }
 
-/* Hover State */
 .about-box:hover {
   transform: translateY(-10px) scale(1.02);
   background: rgba(255, 255, 255, 0.05);
@@ -198,7 +188,6 @@
   transform: translate(250px, 150px);
 }
 
-/* Icon Container */
 .box-icon-wrapper {
   width: 64px;
   height: 64px;
@@ -218,7 +207,6 @@
   transition: all 0.4s ease;
 }
 
-/* Icon Animation on Hover */
 .about-box:hover .box-icon-wrapper {
   background: linear-gradient(135deg, #3b82f6, #9333ea);
   border-color: transparent;
@@ -231,7 +219,6 @@
   transform: scale(1.15);
 }
 
-/* Text */
 .box-text {
   display: flex;
   flex-direction: column;
@@ -254,13 +241,11 @@
   font-weight: 400;
 }
 
-/* ===== ANIMATIONS ===== */
 @keyframes floatBg {
   0% { transform: translateY(0) scale(1); }
   100% { transform: translateY(-40px) scale(1.1); }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .about-container {
     flex-direction: column;

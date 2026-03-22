@@ -2,7 +2,6 @@ import "./about.css";
 import { motion } from "framer-motion";
 import { FiCode, FiBriefcase, FiUsers, FiAward } from "react-icons/fi";
 
-// Defined outside component — not re-created on every render
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.18 } }
@@ -24,7 +23,6 @@ function About() {
     <section className="about" id="about">
       <div className="about-container">
 
-        {/* LEFT */}
         <motion.div
           className="about-left"
           variants={containerVariants}
@@ -66,7 +64,6 @@ function About() {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT — data-driven, no repeated JSX */}
         <motion.div
           className="about-right"
           variants={containerVariants}

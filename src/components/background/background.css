@@ -1,4 +1,3 @@
-/* ===== GLOBAL ===== */
 body {
   margin: 0;
   padding: 0;
@@ -6,7 +5,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* ===== BACKGROUND ===== */
 .background {
   position: fixed;
   top: 0;
@@ -15,11 +13,9 @@ body {
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  /* Single blur pass on the CONTAINER instead of per-element — massive perf win */
   filter: blur(70px);
 }
 
-/* ===== LIQUID BLOB ===== */
 .liquid {
   position: absolute;
 
@@ -30,9 +26,8 @@ body {
   left: var(--left);
 
   background: var(--gradient);
-  opacity: 0.5;
+  opacity: 0.9;
 
-  /* Only animate transform and border-radius — GPU composited, zero layout thrashing */
   animation:
     morph var(--morph-duration) ease-in-out infinite,
     float var(--float-duration) ease-in-out infinite;
@@ -40,7 +35,6 @@ body {
   will-change: transform, border-radius;
 }
 
-/* ===== MORPHING ===== */
 @keyframes morph {
   0%, 100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -50,7 +44,6 @@ body {
   }
 }
 
-/* ===== FLOAT ===== */
 @keyframes float {
   0% { transform: translate(0, 0); }
   50% { transform: translate(var(--x), var(--y)); }

@@ -46,7 +46,7 @@ const cards = [
     id: "database",
     category: "category-database",
     icon: <FaDatabase />,
-    title: "Base de Données",
+    title: "Database",
     preview: "MySQL, MongoDB",
     icons: [
       { icon: <SiMysql />, color: "#4479A1", label: "MySQL" },
@@ -68,7 +68,6 @@ const cards = [
   },
 ];
 
-// Dedicated component so React hover state works independently of the Tilt library
 function IconItem({ icon, color, label }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -154,14 +153,12 @@ function Skills() {
             >
               <div className={`skill-card ${flipped[card.id] ? "flipped" : ""}`}>
                 <div className="card-inner">
-                  {/* FRONT */}
                   <div className={`card-front ${card.category}`}>
                     <div className="front-content">
                       <span className="front-icon">{card.icon}</span>
                       <h3>{card.title}</h3>
                     </div>
                   </div>
-                  {/* BACK */}
                   <div className="card-back">
                     <h4 className="back-title">{card.title}</h4>
                     <div className="icons-grid">

@@ -1,0 +1,551 @@
+/* ==========================================================================
+   ULTRA-PREMIUM LIGHT MODE PRESETS (AWWWARDS-LEVEL)
+   ========================================================================== */
+
+/* 1. GLOBAL BACKGROUNDS & BLOBS */
+body.light-mode {
+  background: #f4f6fa;
+  color: #0f172a;
+}
+
+body.light-mode .glass-app {
+  /* Minimal white overlay to wash out the blobs into a clean pastel look */
+  background: rgba(255, 255, 255, 0.65) !important;
+}
+
+body.light-mode .background {
+  /* Let the colors blend naturally */
+  mix-blend-mode: multiply;
+}
+
+body.light-mode .liquid {
+  /* Watercolor magic: low opacity, multiplied, high saturation */
+  opacity: 0.4 !important;
+  filter: saturate(1.8) brightness(1.05) hue-rotate(15deg) !important;
+}
+
+/* 2. TYPOGRAPHY - HIGH CONTRAST SLATE */
+body.light-mode section {
+  color: #0f172a;
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode .contact-title,
+body.light-mode .projects-title,
+body.light-mode .title,
+body.light-mode .about-left h2,
+body.light-mode .project-text h3,
+body.light-mode .contact-left h3 {
+  color: #0f172a !important;
+}
+
+/* Deepen gradients on text for better readability on light backgrounds */
+body.light-mode .hero-title span.name-highlight,
+body.light-mode .contact-title span,
+body.light-mode .projects-title span,
+body.light-mode .skills-title span,
+body.light-mode .title span,
+body.light-mode .about-left h2 span {
+  background: linear-gradient(135deg, #1d4ed8, #6d28d9) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+body.light-mode p,
+body.light-mode .hero-subtitle,
+body.light-mode .hero-text,
+body.light-mode .contact-left p,
+body.light-mode .about-p,
+body.light-mode .project-text p,
+body.light-mode .about-details p {
+  color: #475569 !important;
+  font-weight: 400 !important;
+}
+
+body.light-mode .hero-subtitle strong {
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+/* About Goals */
+body.light-mode .goal-container {
+  background: rgba(147, 51, 234, 0.06) !important;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.03) !important;
+}
+
+body.light-mode .goal-icon-wrapper {
+  background: rgba(168, 85, 247, 0.1) !important;
+  box-shadow: 0 4px 10px rgba(168, 85, 247, 0.1) !important;
+}
+
+body.light-mode .goal-icon {
+  color: #9333ea !important;
+}
+
+body.light-mode .goal {
+  color: #475569 !important;
+}
+
+body.light-mode .goal strong {
+  color: #0f172a !important;
+}
+
+body.light-mode .email-info strong {
+  color: #0f172a !important;
+}
+body.light-mode .email-info span {
+  color: #64748b !important;
+}
+
+/* 3. HEADER & NAVIGATION */
+body.light-mode .header {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04) !important;
+}
+
+body.light-mode .logo {
+  color: #0f172a !important;
+}
+
+body.light-mode .nav-desktop a {
+  color: #475569 !important;
+}
+
+body.light-mode .nav-desktop a:hover {
+  color: #2563eb !important;
+}
+
+/* Theme Toggle Pills */
+body.light-mode .theme-toggle {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+
+body.light-mode .theme-btn {
+  color: #64748b !important;
+}
+
+body.light-mode .theme-btn:hover {
+  color: #0f172a !important;
+}
+
+/* Active buttons handled by inline styles, but we force hover colors */
+
+/* Mobile Menu */
+body.light-mode .mobile-menu {
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.05) !important;
+}
+body.light-mode .mobile-header {
+  border-color: rgba(0,0,0,0.05) !important;
+}
+body.light-mode .mobile-logo,
+body.light-mode .close-btn {
+  color: #0f172a !important;
+}
+body.light-mode .mobile-menu a {
+  color: #475569 !important;
+}
+body.light-mode .mobile-menu a:hover {
+  background: #f8fafc !important;
+  color: #2563eb !important;
+}
+
+/* 4. PREMIUM GLASS COMPONENTS */
+body.light-mode .about-box,
+body.light-mode .contact-form,
+body.light-mode .email-card,
+body.light-mode .visual-box,
+body.light-mode .stat-box {
+  background: #ffffff !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.04), 0 5px 15px -3px rgba(15, 23, 42, 0.02) !important;
+}
+
+body.light-mode .about-box:hover {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  box-shadow: 0 25px 45px -5px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Projects Desktop Box is transparent, mobile gets the card */
+body.light-mode .project-row {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+  body.light-mode .project-row {
+    background: #ffffff !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.04) !important;
+  }
+}
+
+body.light-mode .project-badge {
+  background: rgba(37, 99, 235, 0.08) !important;
+  border: 1px solid rgba(37, 99, 235, 0.2) !important;
+  color: #2563eb !important;
+}
+
+body.light-mode .tech-tag {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+/* Ambient glow blobs inside blocks */
+body.light-mode .form-glow,
+body.light-mode .visual-shine,
+body.light-mode .about-box .glow {
+  background: #3b82f6 !important;
+  opacity: 0.03 !important;
+  mix-blend-mode: multiply !important;
+}
+
+/* About box texts */
+body.light-mode .about-box h3 {
+  color: #0f172a !important;
+}
+body.light-mode .about-box p {
+  color: #475569 !important;
+}
+
+/* 5. SKILLS CARDS & ICONS */
+body.light-mode .card-front,
+body.light-mode .card-back {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.light-mode .front-icon {
+  color: #0f172a !important; /* Make icon visible on light background */
+}
+
+body.light-mode .card-front h3,
+body.light-mode .card-front p {
+  color: #0f172a !important;
+}
+
+body.light-mode .back-title {
+  color: #0f172a !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+body.light-mode .icon-item {
+  border: 1px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.01) !important;
+}
+body.light-mode .icon-item svg {
+  color: #64748b !important;
+}
+body.light-mode .icon-item:hover {
+  background: #ffffff !important;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+/* 6. INPUTS & FORMS */
+body.light-mode .input-group input,
+body.light-mode .input-group textarea {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.01) !important;
+}
+
+body.light-mode .input-group input:focus,
+body.light-mode .input-group textarea:focus {
+  background: #ffffff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
+}
+
+body.light-mode .input-group label {
+  color: #64748b !important;
+}
+
+/* Magic Floating Label in Light Mode */
+body.light-mode .input-group input:focus + label,
+body.light-mode .input-group input:not(:placeholder-shown) + label,
+body.light-mode .input-group textarea:focus + label,
+body.light-mode .input-group textarea:not(:placeholder-shown) + label {
+  background: #ffffff !important; 
+  color: #2563eb !important;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.03) !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 2px 10px !important;
+}
+
+/* Beautiful Focus Border Bottom line */
+body.light-mode .focus-border {
+  background: linear-gradient(90deg, #2563eb, #7c3aed) !important;
+  height: 3px !important;
+}
+
+/* 7. WIDGETS (Email, Actions) */
+body.light-mode .email-card button {
+  color: #64748b !important;
+}
+
+body.light-mode .email-card:hover button {
+  color: #0f172a !important;
+  background: #f1f5f9 !important;
+  border-radius: 8px !important;
+}
+
+body.light-mode .email-card button.copied {
+  color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+body.light-mode .social-links a {
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  color: #64748b !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02) !important;
+}
+
+body.light-mode .social-links a:hover {
+  background: #f8fafc !important;
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1) !important;
+}
+
+/* 8. LINKS & BUTTONS */
+body.light-mode .link-ghost {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+body.light-mode .link-ghost:hover {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.04) !important;
+}
+
+body.light-mode .submit-btn,
+body.light-mode .btn-primary,
+body.light-mode .link-primary {
+  background: linear-gradient(135deg, #2563eb, #6d28d9) !important;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2) !important;
+}
+
+body.light-mode .submit-btn:hover,
+body.light-mode .btn-primary:hover,
+body.light-mode .link-primary:hover {
+  box-shadow: 0 15px 25px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* 9. TIMELINE / EXPERIENCE SECTION */
+body.light-mode .timeline-line {
+  background: linear-gradient(to bottom, transparent, #9ca3af 15%, #cbd5e1 50%, #9ca3af 85%, transparent) !important;
+}
+
+body.light-mode .timeline-dot {
+  background: #ffffff !important;
+  border: 2px solid #3b82f6 !important;
+  color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.05), inset 0 0 10px rgba(59, 130, 246, 0.1) !important;
+}
+
+body.light-mode .timeline-item:hover .timeline-dot {
+  background: linear-gradient(135deg, #3b82f6, #9333ea) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3) !important;
+}
+
+body.light-mode .timeline-content {
+  background: #ffffff !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.04) !important;
+}
+
+body.light-mode .timeline-content:hover {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 20px rgba(59, 130, 246, 0.05) inset !important;
+}
+
+body.light-mode .timeline-content h3 {
+  color: #0f172a !important;
+}
+
+body.light-mode .timeline-content li {
+  color: #475569 !important;
+}
+
+body.light-mode .exp-date span {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #64748b !important;
+}
+
+body.light-mode .experience-title span {
+  background: linear-gradient(135deg, #1d4ed8, #6d28d9) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* 11. FOOTER (LIGHT MODE) */
+body.light-mode .footer-glass-box {
+  background: #ffffff !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05), inset 0 2px 0 rgba(255, 255, 255, 1) !important;
+}
+
+body.light-mode .footer-logo {
+  color: #0f172a !important;
+}
+
+body.light-mode .footer-slogan {
+  color: #475569 !important;
+}
+
+body.light-mode .contact-pill {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+body.light-mode .contact-pill:hover {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+}
+
+body.light-mode .socials-col h3 {
+  color: #0f172a !important;
+}
+
+body.light-mode .social-box {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+/* Keep the beautiful branded hover colors in light mode! */
+body.light-mode .social-box:hover {
+  color: #ffffff !important;
+}
+
+body.light-mode .footer-bottom-bar {
+  border-color: #e2e8f0 !important;
+}
+
+body.light-mode .copyright {
+  color: #64748b !important;
+}
+
+body.light-mode .back-to-top {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+body.light-mode .back-to-top:hover {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+/* 12. EDUCATION */
+body.light-mode .edu-card,
+body.light-mode .lang-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05) !important;
+}
+
+body.light-mode .edu-card:hover,
+body.light-mode .lang-card:hover {
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-mode .edu-text h3,
+body.light-mode .lang-title {
+  color: #0f172a !important;
+}
+
+body.light-mode .edu-university,
+body.light-mode .lang-name {
+  color: #475569 !important;
+}
+
+body.light-mode .edu-badge {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #2563eb !important;
+}
+
+body.light-mode .edu-tag {
+  background: #f8fafc !important;
+  color: #334155 !important;
+  border-color: #e2e8f0 !important;
+}
+
+body.light-mode .bar-bg {
+  background: #e2e8f0 !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02) !important;
+}
+
+body.light-mode .education-title {
+  color: #0f172a !important;
+}
+
+/* 13. PROJECT MODAL (LIGHT MODE) */
+body.light-mode .modal-content {
+    background: #ffffff !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1) !important;
+    color: #475569 !important;
+}
+
+body.light-mode .modal-close {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+body.light-mode .modal-close:hover {
+    background: #ef4444 !important;
+    border-color: #ef4444 !important;
+    color: white !important;
+}
+
+body.light-mode .modal-header h2 {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+body.light-mode .modal-info h3 {
+    color: #0f172a !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode .modal-info p {
+    color: #475569 !important;
+}
+
+body.light-mode .modal-action-btn.ghost,
+body.light-mode .link-ghost {
+    background: #f8fafc !important;
+    color: #334155 !important;
+    border-color: #cbd5e1 !important;
+}
+
+body.light-mode .modal-action-btn.ghost:hover,
+body.light-mode .link-ghost:hover {
+    background: #f1f5f9 !important;
+    border-color: #94a3b8 !important;
+}
