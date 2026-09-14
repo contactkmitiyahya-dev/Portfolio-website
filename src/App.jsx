@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useLocation } from "react-router-dom";
-import { useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { useScroll, useSpring, AnimatePresence, motion } from "framer-motion";
 // Core components (Loaded immediately)
 import Loader from "./components/loader/loader";
 import Background from "./components/background/Background";

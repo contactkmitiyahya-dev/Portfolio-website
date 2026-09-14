@@ -549,3 +549,33 @@ body.light-mode .link-ghost:hover {
     background: #f1f5f9 !important;
     border-color: #94a3b8 !important;
 }
+
+/* ============================================================
+   HERO BUTTONS — LIGHT MODE OVERRIDES
+   ============================================================ */
+
+/* Primary button: keep gradient, force white text */
+body.light-mode .btn-primary {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.3) !important;
+}
+
+body.light-mode .btn-primary:hover {
+  box-shadow: 0 16px 32px rgba(29, 78, 216, 0.4) !important;
+}
+
+/* Secondary button: solid black text, dark border on white pill */
+body.light-mode .btn-secondary {
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+body.light-mode .btn-secondary:hover {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.35) !important;
+}

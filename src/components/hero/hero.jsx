@@ -1,11 +1,10 @@
 import "./hero.css";
-import profile from "../../assets/profile.jpg";
-import cvFile from "../../assets/kmiti_yahya_cv.pdf";
+import profile from "../../assets/profile.jpeg";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiDownload } from "react-icons/fi";
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -18,6 +17,10 @@ const itemVariants = {
 };
 
 function Hero() {
+  const isFrench = document.cookie.includes("googtrans=/en/fr");
+  const cvFile = isFrench ? "/cv_kmiti_yahya_F.pdf" : "/cv_kmiti_yahya_A.pdf";
+  const cvFileName = isFrench ? "cv_kmiti_yahya_F.pdf" : "cv_kmiti_yahya_A.pdf";
+
   return (
     <section className="hero" id="home">
       <div className="hero-container">
@@ -58,7 +61,7 @@ function Hero() {
             </MotionLink>
             <motion.a
               href={cvFile}
-              download="Kmiti_Yahya_CV.pdf"
+              download={cvFileName}
               className="btn-secondary"
               aria-label="Download my CV as a PDF file"
               whileHover={{ scale: 1.04 }}

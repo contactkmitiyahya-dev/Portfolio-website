@@ -1,5 +1,7 @@
 import "./projects.css";
-import profile from "../../assets/profile.jpg";
+import smartConstruction from "../../assets/smart construction.png";
+import portfolioImg from "../../assets/portfolio.png";
+import SmartCar from "../../assets/SmartCar.png";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiGithub, FiMaximize2, FiX, FiCheckCircle } from "react-icons/fi";
@@ -13,9 +15,9 @@ const projects = [
         fullDescription: "A comprehensive digital ecosystem built to revolutionize artisan and contractor management. This platform features AI-driven analytics, real-time collaboration tools, an automated product classification engine, and an integrated messaging system connecting clients and builders seamlessly.",
         challenges: "Handling real-time synchronization across multiple socket endpoints without performance drops. Integrating seamless AI responses from custom trained ML models into a NodeJS microservices backend.",
         tech: ["React", "Node.js", "MySQL", "AI", "Express"],
-        image: profile,
+        image: smartConstruction,
         gradient: "linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)",
-        github: "https://github.com/contactkmitiyahya-dev",
+        github: "https://github.com/ImemAyachi/Esprit-PIDEV-4TWIN1-2026-Artisant",
         live: "#",
         badge: "AI-Powered",
     },
@@ -27,9 +29,9 @@ const projects = [
         fullDescription: "An interactive web showcase built natively in React. The interface features pure custom CSS glassmorphism, sophisticated framer-motion timeline stagger effects, seamless day/night app logic, and dedicated custom API integrations.",
         challenges: "Achieving complex UI aesthetics combining dynamic translations, seamless native Email APIs via Web3Forms, and robust client side SPA routing, all while strictly adhering to 60fps scrolling performance metrics.",
         tech: ["React", "Framer Motion", "CSS", "Vite"],
-        image: profile,
+        image: portfolioImg,
         gradient: "linear-gradient(135deg, #9333ea 0%, #6d28d9 100%)",
-        github: "https://github.com/contactkmitiyahya-dev",
+        github: "https://github.com/contactkmitiyahya-dev/Portfolio-website",
         live: "#",
         badge: "Live",
     },
@@ -41,12 +43,23 @@ const projects = [
         fullDescription: "An enterprise-grade Human Resources management module handling complex administrative entities. It actively tracks digital leave requests, dynamic payroll distributions, and organizational hierarchies with deep active directory integration.",
         challenges: "Building complex multi-level approval workflows where request statuses cascade correctly through varying management chains using pure backend methodologies alongside an optimized Database integration structure.",
         tech: ["HTML", "CSS", "JavaScript", "Symfony", "PHP"],
-        image: profile,
         gradient: "linear-gradient(135deg, #06b6d4 0%, #0e7490 100%)",
         github: "https://github.com/contactkmitiyahya-dev",
-        live: "#",
         badge: "Full-Stack",
     },
+    {
+        id: 3,
+        title: "SmartCar Telematics & Predictive Maintenance Platform",
+        description: "Conceived and developed a full-stack web application for vehicle monitoring, sensor data analytics, and predictive maintenance using a Server-Side Rendering (SSR) architecture.",
+        fullDescription: "An enterprise-grade telematics platform designed to monitor fleet health and forecast vehicle failures using real-time sensor metrics (RPM, coolant temperature, DTC error codes)[cite: 1]. It features SSR rendering with React 19, custom Webpack 5 client bundling, dynamic Recharts data visualizations, CSV/JSON data ingestion pipelines, and JWT/OAuth2 authentication[cite: 1].",
+        challenges: "Building a unified hybrid architecture that handles SSR via Webpack-dev-middleware and Express, while managing real-time sensor data uploads (Multer & CSV parsing) and integrating interactive data visualization dashboards alongside mock AI prediction models[cite: 1].",
+        tech: ["React 19", "Node.js", "Express.js", "PostgreSQL", "Webpack 5", "Recharts", "JWT", "Multer"],
+        image: SmartCar,
+        gradient: "linear-gradient(135deg, #06b6d4 0%, #0e7490 100%)",
+        github: "https://github.com/contactkmitiyahya-dev/smartCarWeviooInternership",
+        live: "https://smartcarwevioointernership.onrender.com",
+        badge: "Full-Stack",
+    }
 ];
 
 const techColors = {
@@ -145,16 +158,19 @@ function Projects() {
                                 >
                                     <FiMaximize2 /> Details
                                 </motion.button>
-                                <motion.a
-                                    href={project.live}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="link-btn link-ghost"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <FiExternalLink /> Live Demo
-                                </motion.a>
+                                {project.live && project.live !== "#" && (
+                                    <motion.a
+                                        href={project.live}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="link-btn link-ghost"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        aria-label={`Open live demo for ${project.title}`}
+                                    >
+                                        <FiExternalLink /> Live Demo
+                                    </motion.a>
+                                )}
                             </div>
                         </div>
 
@@ -167,7 +183,7 @@ function Projects() {
                         >
                             <div className="visual-box">
                                 <div className="visual-overlay" />
-                                <img src={project.image} alt={project.title} className="project-img" />
+                                {project.image && <img src={project.image} alt={project.title} className="project-img" />}
                             </div>
                         </motion.div>
                     </motion.div>
@@ -205,9 +221,11 @@ function Projects() {
                             </div>
 
                             <div className="modal-body">
-                                <div className="modal-image-container">
-                                    <img src={selectedProject.image} alt={selectedProject.title} />
-                                </div>
+                                {selectedProject.image && (
+                                    <div className="modal-image-container">
+                                        <img src={selectedProject.image} alt={selectedProject.title} />
+                                    </div>
+                                )}
 
                                 <div className="modal-info">
                                     <h3>Project Overview</h3>

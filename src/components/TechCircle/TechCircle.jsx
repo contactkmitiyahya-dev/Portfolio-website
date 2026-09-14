@@ -1,4 +1,5 @@
 import "./TechCircle.css";
+import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt } from "react-icons/fa";
 import { SiJavascript, SiMongodb, SiAngular, SiNestjs, SiPython, SiTypescript } from "react-icons/si";
 

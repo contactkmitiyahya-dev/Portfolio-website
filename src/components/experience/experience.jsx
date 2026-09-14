@@ -1,11 +1,24 @@
 import "./experience.css";
 import { motion } from "framer-motion";
-import { FaNetworkWired, FaShieldAlt } from "react-icons/fa";
+import { FaNetworkWired, FaShieldAlt, FaCode } from "react-icons/fa";
 
 function Experience() {
   const experiences = [
     {
       id: 1,
+      title: "Web Developer Intern",
+      company: "Wevioo · Tunis, Tunisia",
+      date: "June 2026 – August 2026",
+      icon: <FaCode />,
+      tasks: [
+        "Designed and developed a full-stack web application for vehicle telematics tracking and predictive maintenance (SmartCar Wevioo)",
+        "Implemented Server-Side Rendering (SSR) using React 19, Webpack 5, and Express.js to enhance load performance, responsiveness, and SEO",
+        "Built a secure RESTful API with Node.js/Express featuring JWT authentication, Bcrypt password hashing, OAuth2 social login (Google, GitHub), and file processing with Multer",
+        "Engineered a relational database schema in PostgreSQL to handle vehicle profiles, IoT sensor readings, Diagnostic Trouble Codes (DTCs), and maintenance logs"
+      ]
+    },
+    {
+      id: 2,
       title: "Network Intern",
       company: "Ooredoo Tunisia",
       date: "Jul 10, 2025 – Aug 22, 2025",
@@ -18,7 +31,7 @@ function Experience() {
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: "IT Security Intern",
       company: "MG Holding",
       date: "Jun 15, 2023 – Aug 15, 2023",
@@ -40,7 +53,7 @@ function Experience() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        My <span>Experience</span>
+        My <span>Experiences</span>
       </motion.h2>
 
       <div className="timeline">
