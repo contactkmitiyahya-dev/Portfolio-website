@@ -1,5 +1,5 @@
 import "./projects.css";
-import smartConstruction from "../../assets/smart construction.png";
+import smartConstruction from "../../assets/smart_construction.png";
 import portfolioImg from "../../assets/portfolio.png";
 import SmartCar from "../../assets/smartCar.png";
 import { useState, useEffect } from "react";
