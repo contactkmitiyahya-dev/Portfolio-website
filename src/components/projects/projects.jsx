@@ -1,7 +1,7 @@
 import "./projects.css";
 import smartConstruction from "../../assets/smart construction.png";
 import portfolioImg from "../../assets/portfolio.png";
-import SmartCar from "../../assets/SmartCar.png";
+import SmartCar from "../../assets/smartCar.png";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiGithub, FiMaximize2, FiX, FiCheckCircle } from "react-icons/fi";
